@@ -1,0 +1,49 @@
+// color
+$dark-gray: #a7a7a7;
+$light-gray: #eee;
+$blue: #71dcfb;
+$white: transparentize($color: #fff, $amount: 0.1);
+// font-size
+$font-md: 27px;
+$font-sm: 25px;
+$font-lg: 35px;
+// position & size
+$block-width: 600px;
+$block-height: 89px;
+$nav-height: 154px;
+$margin-lg: 75px;
+$margin-md: 29px;
+$margin-sm: 13px;
+$margin-top: 47px;
+
+@mixin displayFlex($jusContent, $aliItems, $direction) {
+    display: flex;
+    justify-content: $jusContent;
+    align-items: $aliItems;
+    flex-direction: $direction;
+  }
+@mixin clear-mp {
+    margin: 0;
+    padding: 0;
+}
+input,
+button,
+a,
+h3,
+input::placeholder {
+  color: $white;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+// 公共继承样式.
+.icon-size{
+    width: 32px;
+    height: 36px;
+}
+
+.block-size {
+    width: $block-width;
+    height: $block-height;
+    line-height: $block-height;
+}
