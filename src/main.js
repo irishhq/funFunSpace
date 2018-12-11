@@ -4,7 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'lib-flexible/flexible.js'
-
+// import './lib/mui/css/mui.css'
+import 'mint-ui/lib/style.css'
+import { Swipe, SwipeItem, Button } from "mint-ui"
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
 Vue.config.productionTip = false
 
 /*使用axios来代替$http, axios支持session*/
