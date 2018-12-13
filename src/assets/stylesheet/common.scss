@@ -16,6 +16,7 @@ $margin-md: 29px;
 $margin-sm: 13px;
 $margin-top: 47px;
 
+$tab-height: 104px;
 @mixin displayFlex($jusContent, $aliItems, $direction) {
     display: flex;
     justify-content: $jusContent;
@@ -25,6 +26,11 @@ $margin-top: 47px;
 @mixin clear-mp {
     margin: 0;
     padding: 0;
+}
+@mixin divi-line($width, $color, $weight) {
+    border-bottom: $weight solid $color;
+    width: $width;
+    margin: 0 auto;
 }
 input,
 button,
