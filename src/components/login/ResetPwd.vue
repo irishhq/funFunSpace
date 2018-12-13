@@ -1,40 +1,44 @@
 <template>
-    <div class="app-reset-pwd">
-        <!-- 导航栏 -->
-        <div class="nav-wrap">
-            <div class="nav-bar">
-                <span><a href="">&lt;</a></span>
-                <h3>忘记密码</h3>
-                <span><a href=""></a></span>
-            </div>
-        </div>
-        
-        <!-- 忘记密码表单 -->
-        <form action="/" >
-            <div class="block">
-                <img src="../../assets/img/login_signin/phone.png">
-                <input type="text" placeholder="请输入手机号码">
-            </div>
-            <div class="block">
-                <img src="../../assets/img/login_signin/nick_name.png">
-                <input type="password" placeholder="请输入昵称">
-            </div>
-            <div class="block">
-                <div class="idcode">
-                    <img src="../../assets/img/login_signin/idcode.png">
-                    <input class="" type="password" placeholder="请输入验证码">
-                </div>
-                <button class="get-idcode">获取验证码</button>
-            </div>
-        </form>
-        <!-- 确定,提交表单按钮 -->
-        <div>
-
-        </div>
-        <button type="submit" class="block">
-            确定
-        </button>
+  <div class="app-reset-pwd">
+    <!-- 导航栏 -->
+    <div class="nav-wrap">
+      <div class="nav-bar">
+        <span>
+          <a href="">&lt;</a>
+        </span>
+        <h3>忘记密码</h3>
+        <span>
+          <a href=""></a>
+        </span>
+      </div>
     </div>
+
+    <!-- 忘记密码表单 -->
+    <form action="/">
+      <div class="block">
+        <img src="../../assets/img/login_signin/phone.png">
+        <input type="text" placeholder="请输入手机号码">
+      </div>
+      <div class="block">
+        <img src="../../assets/img/login_signin/nick_name.png">
+        <input type="password" placeholder="请输入昵称">
+      </div>
+      <div class="block">
+        <div class="idcode">
+          <img src="../../assets/img/login_signin/idcode.png">
+          <input class="" type="password" placeholder="请输入验证码">
+        </div>
+        <button class="get-idcode">获取验证码</button>
+      </div>
+    </form>
+    <!-- 确定,提交表单按钮 -->
+    <div>
+
+    </div>
+    <button type="submit" class="block">
+      确定
+    </button>
+  </div>
 </template>
 
 <script>
@@ -43,13 +47,20 @@ export default {};
 
 <style lang="scss">
 @import "../../assets/stylesheet/common.scss";
-input::placeholder {
-  color: $dark-gray;
-}
+
 .app-reset-pwd {
+  z-index: 999;
   width: 100%;
   height: 100%;
   background: $light-gray;
+  input::placeholder {
+    color: $dark-gray;
+  }
+  button,
+  a,
+  h3 {
+    color: $white;
+  }
 }
 // 导航栏
 .app-reset-pwd .nav-wrap {
