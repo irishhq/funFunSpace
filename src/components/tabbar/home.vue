@@ -82,12 +82,15 @@
     </section>
     <!-- 数据canvas展示 -->
     <section class="data-canvas">
+      <draw-arc></draw-arc>
     </section>
     <div class="tab-hack"></div>
   </div>
 </template>
 
 <script>
+//1. 引入子组件
+import DrawArc from "../sub/DrawArc.vue";
 export default {
   data() {
     return {
@@ -109,7 +112,8 @@ export default {
           title: "钱包",
           icon: "icon-wcode"
         }
-      ]
+      ],
+      rate: 20
     };
   },
   methods: {
@@ -125,6 +129,9 @@ export default {
   },
   created() {
     this.getSwiperImgs();
+  },
+  components: {
+    "draw-arc": DrawArc
   }
 };
 </script>
