@@ -37,6 +37,6 @@ export default new Router({
     },
     { path: '/login', component: login },
     { path: '/resetPwd', component: resetPwd },
-    { path: '/register', component: register }
+    { path: '/register', component: register },
   ]
 })
