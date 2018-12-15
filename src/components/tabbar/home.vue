@@ -81,8 +81,10 @@
       </router-link>
     </section>
     <!-- 数据canvas展示 -->
-    <section class="data-canvas">
-      <draw-arc></draw-arc>
+    <section class="data-svg">
+      <rate-arc :rate="drawArc.rate" :width="drawArc.width" :size="drawArc.size" :color="drawArc.color" :bgColor="drawArc.bgColor">
+      </rate-arc>
+      <p>距离下次分红</p>
     </section>
     <div class="tab-hack"></div>
   </div>
@@ -90,11 +92,11 @@
 
 <script>
 //1. 引入子组件
-import DrawArc from "../sub/DrawArc.vue";
+import RateArc from "../sub/RateArc.vue";
 export default {
   data() {
     return {
-      tabIndex:0,
+      tabIndex: 0,
       swiperImgs: [],
       tabArr: [
         {
@@ -113,7 +115,13 @@ export default {
           icon: "icon-wcode"
         }
       ],
-      rate: 20
+      drawArc: {
+        size: 200,
+        width: 30,
+        rate: 0,
+        color: "#76cfdf",
+        bgColor: "#eee"
+      }
     };
   },
   methods: {
@@ -123,15 +131,22 @@ export default {
         this.swiperImgs = res.data;
       });
     },
+    getBonusRate() {// 获取距离下次分红的数据：rate
+      var url = "http://127.0.0.1:3000/getBonusRate";
+      this.axios.get(url).then(res => {
+        this.drawArc.rate = res.data.rate;
+      })
+    },
     tab(index) {
       this.tabIndex = index;
     }
   },
   created() {
     this.getSwiperImgs();
+    this.getBonusRate();
   },
   components: {
-    "draw-arc": DrawArc
+    "rate-arc": RateArc
   }
 };
 </script>
@@ -233,13 +248,16 @@ $baseImgUrl: "../../assets/img/home/";
       }
     }
   }
-  // 数据canvas展示
-  .data-canvas canvas {
-    width: 200px;
-    height: 200px;
-    background-color: #eee;
-    display: block;
-    margin: 0 auto;
+  // 数据svg圆弧展示
+  .data-svg {
+    svg {
+      display: block;
+      margin: 0 auto;
+    }
+    p {
+      text-align: center;
+      font-weight: bolder;
+    }
   }
 }
 // 分割线
