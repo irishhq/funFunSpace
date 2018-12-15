@@ -59,3 +59,8 @@ app.get("/getSwiperImgs", (req, res) => {
     ];
     res.send(swiperImgs);
 })
+
+///getBonusRate
+app.get("/getBonusRate", (req, res) => {
+    res.send({ msg: "距离下次分红", rate: 74.19 });
+})
