@@ -3,32 +3,20 @@
     <!-- 个人中心 -->
     <!-- 个人中心头部 -->
     <div class="mime-header">
-      <!-- #84bcea #93ceec -->
       <button class="double-throw">复投</button>
-      <!-- 用户信息 -->
       <div class="user-info">
-        <!-- 头像 margin-top:93 margin-bottom: 16px, w/h: 158px, -->
         <img src="../../assets/img/mime_icon/mime_avatar.png" alt="">
-        <!-- w/h: 83*40 font:35-->
-        <p class="uname">Jervi</p>
-        <!-- w:h: 141*24 font:21 -->
-        <p>15269855226</p>
-        <!-- w:h: 138*24 font:21 margin-bottom/margin-top: 21-->
-        <p>会员状态: 冻结</p>
+        <p class="uname">{{userInfo.uname}}</p>
+        <p>{{userInfo.phone}}</p>
+        <p>会员状态: {{userInfo.state}}</p>
       </div>
-      <!-- 额度 w/h: 750/91 -->
       <div class="quota">
-        <!-- margin-top:25 -->
         <div>
-          <!-- font: 27 -->
           <span>2000</span>
-          <!-- font: 21 -->
           <span>额度</span>
         </div>
         <div>
-          <!-- font: 27 -->
           <span>1000</span>
-          <!-- font: 21 -->
           <span>已使用额度</span>
         </div>
       </div>
@@ -57,7 +45,7 @@
           <h3>我的</h3>
           <div class="divi-line"></div>
           <div class="grid">
-            <router-link v-for="(item, index) in linkArr" class="tab-item" :to="item.to" :class="{'newline': 0 === index % 2}" :key="item.id" v-model="item.id">
+            <router-link v-for="(item, index) in mimeLinkArr" class="tab-item" :to="item.to" :class="{'newline': 0 === index % 2}" :key="item.id" v-model="item.id">
               <div class="item">
                 <span class="icon">
                   <img :src="item.icon">
@@ -74,7 +62,7 @@
           <h3>操作</h3>
           <div class="divi-line"></div>
           <div class="grid">
-            <router-link v-for="(item, index) in linkArr" class="tab-item" :to="item.to" :class="{'newline': 0 === index % 2}" :key="item.id" v-model="item.id">
+            <router-link v-for="(item, index) in opLinkArr" class="tab-item" :to="item.to" :class="{'newline': 0 === index % 2}" :key="item.id" v-model="item.id">
               <div class="item">
                 <span class="icon">
                   <img :src="item.icon">
@@ -138,7 +126,52 @@ export default {
           to: "/",
           title: "我的奖励"
         }
-      ]
+      ],
+      mimeLinkArr: [
+        {
+          id: 1,
+          icon: require("../../assets/img/mime_icon/mime_icon2_1.png"),
+          to: "/",
+          title: "我的团队"
+        },
+        {
+          id: 2,
+          icon: require("../../assets/img/mime_icon/mime_icon2_2.png"),
+          to: "/",
+          title: "我的邀请码"
+        },
+        {
+          id: 3,
+          icon: require("../../assets/img/mime_icon/mime_icon2_3.png"),
+          to: "/",
+          title: "我的收款账号"
+        }
+      ],
+      opLinkArr: [
+        {
+          id: 1,
+          icon: require("../../assets/img/mime_icon/mime_icon3_1.png"),
+          to: "/",
+          title: "留言"
+        },
+        {
+          id: 2,
+          icon: require("../../assets/img/mime_icon/mime_icon3_2.png"),
+          to: "/resetPwd",
+          title: "修改密码"
+        },
+        {
+          id: 3,
+          icon: require("../../assets/img/mime_icon/mime_icon3_3.png"),
+          to: "/",
+          title: "退出登录"
+        }
+      ],
+      userInfo: {
+        uname: "Jervi",
+        phone: "15269855226",
+        state: "冻结"
+      }
     };
   },
   methods: {}
